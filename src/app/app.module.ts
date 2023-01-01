@@ -19,6 +19,7 @@ import { ListingProductComponent } from './common/listing-product/listing-produc
 import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 import { ProductDetailComponent } from './common/product-detail/product-detail.component';
 import { ModelComponent } from './common/model/model.component';
+import { FooterComponent } from './common/footer/footer.component';
 
 
 
@@ -36,6 +37,7 @@ import { ModelComponent } from './common/model/model.component';
     DetailPageComponent,
     ProductDetailComponent,
     ModelComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
