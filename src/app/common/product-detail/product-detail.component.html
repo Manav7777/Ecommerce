@@ -1,0 +1,52 @@
+
+<div class="mt-20">
+    <div class="container" *ngFor="let detail of productDetail">
+        <div class="product-image">
+            <img src="{{ detail.thumbnail }}" alt="">
+        </div>
+    
+        <div class="product-details">
+            <header>
+                <h1 class="title">{{ detail.title }}</h1>
+                <span class="colorCat">{{ detail.brand }}</span> <br>
+                <div class="price">
+                    <span class="before">{{ detail.price*2 | currency }}</span>
+                    <span class="current">{{ detail.price | currency}}</span>
+                </div>
+                <div class="rate">
+                    <a href="#!" class="active">★</a>
+                    <a href="#!" class="active">★</a>
+                    <a href="#!" class="active">★</a>
+                    <a href="#!">★</a>
+                    <a href="#!">★</a>
+                </div>
+            </header>
+            <article>
+                <h5>Description</h5>
+                <p>{{ detail.description }}</p>
+            </article>
+            <div class="controls">
+                <div class="size">
+                    <h5>Category</h5>
+                    <span href="#!" class="option">{{ detail.category }}</span>
+                </div>
+                <div class="qty">
+                    <h5>Available</h5>
+                    <span href="#!" class="option">({{ detail.stock }})</span>
+                </div>
+            </div>
+            <div class="footer">
+                <button type="button" class="btn btn-dark">
+                    <span><i class="fa fa-shopping-cart" aria-hidden="true"></i> add to cart</span>
+                </button>
+                <a href="#!"><img src="http://co0kie.github.io/codepen/nike-product-page/share.png" alt=""></a>
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+<a href="" target="_blank" title="Watch me speed code this"
+    style="position: fixed; bottom: 10px; right: 10px"><img src="http://co0kie.github.io/codepen/youtube.png"
+        alt=""></a>
+
