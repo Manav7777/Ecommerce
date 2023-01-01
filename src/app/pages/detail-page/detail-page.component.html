@@ -1,5 +1,9 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <app-listing-product [products]="detailProduct"></app-listing-product>
     </div>
-</div>
+</div> -->
+<app-product-detail [productDetail]="detailProduct"></app-product-detail>
+<ng-template [ngIf]="isLoading">
+    <app-loader></app-loader>
+</ng-template>

@@ -9,7 +9,7 @@ import { ListingComponent } from './pages/listing/listing.component';
 const routes: Routes = [
   {path:'' ,component:AuthenticationComponent},
   {path:'listing' ,component:ListingComponent,canActivate:[AuthGuard]},
-  {path:'product/:id',component:DetailPageComponent},
+  {path:'product/:id',component:DetailPageComponent,canActivate:[AuthGuard]},
   {path:'**' ,component:NotFound},
 ];
 

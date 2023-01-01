@@ -10,13 +10,18 @@ import { GetproductService } from 'src/app/service/getproduct.service';
 export class DetailPageComponent implements OnInit {
   detailProduct=[];
   paramID:any;
+  isLoading:boolean;
   constructor(private route:ActivatedRoute,private productDetail:GetproductService) { }
 
   ngOnInit(): void {
+    this.isLoading=true;
     this.paramID = this.route.snapshot.paramMap.get('id');
     this.productDetail.getProduct(this.paramID).subscribe((response)=>{
       console.log('response',response)
-      this.detailProduct.push(response)
+      this.detailProduct.push(response);
+      if(this.detailProduct){
+        this.isLoading=false;
+      }
     })
   }
   

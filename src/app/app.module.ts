@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoaderComponent } from './common/loader/loader.component';
 import { ListingProductComponent } from './common/listing-product/listing-product.component';
 import { DetailPageComponent } from './pages/detail-page/detail-page.component';
+import { ProductDetailComponent } from './common/product-detail/product-detail.component';
 
 
 
@@ -31,6 +32,7 @@ import { DetailPageComponent } from './pages/detail-page/detail-page.component';
     LoaderComponent,
     ListingProductComponent,
     DetailPageComponent,
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,
