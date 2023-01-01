@@ -66,7 +66,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-    //   background: linear-gradient(to bottom, $pgt 0%, $pgb 100%);
       border-radius: 20px 20px 0 0;
       padding: 55px 0;
       width: 100%;
@@ -209,8 +208,6 @@
       align-items: center;
       border-radius: 7px;
       cursor: pointer;
-    //   background: linear-gradient(to bottom, $bgt 0%, $bgb 100%);
-    //   box-shadow: 0 10px 30px 0 rgba($bgt, 0.7);
       transition: 200ms;
       >img{
         width: 31px;
@@ -271,11 +268,14 @@
     }
     .product-image{
       border-radius: 20px 0 0 20px;
-      max-width: 330px;
+      max-width: 400px;
+      img{
+        max-width: 400px;
+      }
     }
     .product-pic{
       left: -40px;
-      max-width: 330px;
+      max-width: 400px;
     }
     .product-details{
       width: 100%;

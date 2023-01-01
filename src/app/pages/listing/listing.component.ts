@@ -9,16 +9,15 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./listing.component.scss'],
 })
 export class ListingComponent implements OnInit {
-  paramID:any;
+  paramID: any;
   selectedIndex = 0;
   productDetails: any;
   isLoading = false;
   slides = [
     {
-      image:
-        'https://angular.pixelstrap.com/multikart/assets/images/slider/2.jpg',
+      image: `${environment.imageUrl}assets/BG-1.jpg`,
     },
-    { image: `${environment.imageUrl}assets/BG-1.jpg` },
+    { image: `${environment.imageUrl}assets/BG-2.jpg` },
   ];
   sections = [
     {
@@ -36,11 +35,14 @@ export class ListingComponent implements OnInit {
       isCardbody_display: 'false',
     },
   ];
-  constructor(private route: ActivatedRoute, private product: GetproductService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private product: GetproductService
+  ) {}
 
   ngOnInit(): void {
     this.getProducts();
-    this.paramID = this.route.snapshot.paramMap.get('id')
+    this.paramID = this.route.snapshot.paramMap.get('id');
   }
   getProducts() {
     this.isLoading = true;
@@ -51,7 +53,7 @@ export class ListingComponent implements OnInit {
         data.class = 'col-md-4 mb-3';
         data.cardWidth = '20rem';
         data.button = 'Add to Cart';
-        data.viewDetail = 'View Product'
+        data.viewDetail = 'View Product';
       });
       // response.map((data)=>{
       //   data.isCardbody_display = true;
@@ -63,5 +65,4 @@ export class ListingComponent implements OnInit {
       this.isLoading = false;
     });
   }
-  
 }
