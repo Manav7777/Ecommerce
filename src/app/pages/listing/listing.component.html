@@ -1,0 +1,39 @@
+<div class="">
+  <mat-carousel
+    timings="250ms ease-in"
+    [autoplay]="true"
+    interval="5000"
+    color="accent"
+    maxWidth="auto"
+    proportion="25"
+    slides="2"
+    [loop]="true"
+    [hideArrows]="false"
+    [hideIndicators]="false"
+    [useKeyboard]="true"
+    [useMouseWheel]="false"
+    orientation="ltr"
+    slideHeight="700px"
+  >
+    <mat-carousel-slide
+      #matCarouselSlide
+      *ngFor="let slide of slides; let i = index"
+      [image]="slide.image"
+      overlayColor="#00000040"
+      [hideOverlay]="true"
+    ></mat-carousel-slide>
+  </mat-carousel>
+</div>
+<div class="container mt-2">
+  <div class="space-TB">
+    <app-card [sections]="sections"></app-card>
+  </div>
+  <div class="row">
+    <div class="product-card">
+      <app-listing-product [products]="productDetails"></app-listing-product>
+    </div>
+  </div>
+</div>
+<ng-template [ngIf]="isLoading">
+  <app-loader></app-loader>
+</ng-template>

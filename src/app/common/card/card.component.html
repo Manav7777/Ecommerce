@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="{{ card.class }}" *ngFor="let card of sections">
+    <div class="card" id="{{ card.id }}" [class.active]="card.id == cardActiveId" (click)="setActiveCard(card.id)">
+      <div class="card-img-top">
+        <img src="{{ card.image }}" alt="Card image cap" />
+      </div>
+      <h5 class="card-title">{{ card.text }}</h5>
+      <!-- <div *ngIf="card.isCardbody_display">
+        <div class="card-body">
+          <h4 class="card-title">{{ card.title }}</h4>
+          <p class="card-description">{{ card.description }}</p>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>

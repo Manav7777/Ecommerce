@@ -1,0 +1,81 @@
+@import "../../common/card/card.component.scss";
+
+.space-TB {
+  padding: 40px 0;
+}
+::ng-deep {
+  .card {
+    padding: 0 !important;
+    margin-right: 5px;
+    position: relative;
+    max-width: 500px;
+    cursor: pointer;
+    .card-body {
+      height: 0;
+      display: none;
+    }
+    .card-img-top {
+      width: 100%;
+      height: auto;
+      img{
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+    h5 {
+      font-size: 23px;
+      position: absolute;
+      right: 4%;
+      top: 50%;
+    }
+    &:hover {
+      outline: 2px solid #20a0eb;
+    }
+  }
+  .product-card {
+    width: 100%;
+    .card {
+      cursor: default;
+      max-width: 500px;
+      max-height: 500px;
+      height: 100%;
+      margin: 5px 2px;
+      box-shadow: none !important;
+      .card-img-top {
+        width: 100%;
+        min-height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: antiquewhite;
+        img {
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+      .card-body {
+        height: 100%;
+        display:block;
+        .btn-outline-accent{
+          border: 1px solid #ff4081;
+          color: #ff4081;
+        &:hover{
+          background-color: #ff4081;
+          color: #fff;
+        }
+        }
+      }
+      .card-description {
+        white-space: nowrap;
+        width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      h4 {
+        color: #000;
+        font-size: 20px;
+      }
+    }
+  }
+}
+// #ff4081
