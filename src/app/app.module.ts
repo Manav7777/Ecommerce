@@ -18,6 +18,8 @@ import { LoaderComponent } from './common/loader/loader.component';
 import { ListingProductComponent } from './common/listing-product/listing-product.component';
 import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 import { ProductDetailComponent } from './common/product-detail/product-detail.component';
+import { ModelComponent } from './common/model/model.component';
+
 
 
 
@@ -33,6 +35,7 @@ import { ProductDetailComponent } from './common/product-detail/product-detail.c
     ListingProductComponent,
     DetailPageComponent,
     ProductDetailComponent,
+    ModelComponent,
   ],
   imports: [
     BrowserModule,
