@@ -55,12 +55,6 @@ export class ListingComponent implements OnInit {
         data.button = 'Add to Cart';
         data.viewDetail = 'View Product';
       });
-      // response.map((data)=>{
-      //   data.isCardbody_display = true;
-      //   data.class = 'col-md-4 mb-3';
-      //   data.cardWidth = '20rem';
-      //   data.button = "Add to Cart"
-      // })
       this.productDetails = response.products;
       this.isLoading = false;
     });
