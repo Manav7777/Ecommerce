@@ -7,10 +7,16 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ListingProductComponent implements OnInit {
 
-  @Input() products
+  @Input() products;
+  cardActiveId;
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  setActiveCard(id){
+    this.cardActiveId = id
+  }
+  addTOCart(id){
+    console.log('cart',id)
+  }
 }
