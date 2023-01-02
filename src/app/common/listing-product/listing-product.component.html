@@ -1,21 +1,24 @@
 <div class="row">
-    <div class="{{ card.class }}" *ngFor="let card of products">
-      <div class="card" id="{{ card.id }}" [class.active]="card.id == cardActiveId" (click)="setActiveCard(card.id)">
-        <div class="card-img-top">
-          <img src="{{ card.thumbnail }}" alt="Card image cap" />
-        </div>
-        <h5 class="card-title">{{ card.text }}</h5>
-        <div *ngIf="card.isCardbody_display">
-          <div class="card-body">
-            {{ card.category }}
-            <h4 class="card-title">{{ card.title }}</h4>
-            <p class="card-description">{{ card.description }}</p>
-            <p class="card-text">{{ card.price |currency }}  <span>({{ card.discountPercentage }}%) </span></p>
-            <p>Available : {{ card.stock }}</p>
-            <button class="btn btn-dark" (click)="addTOCart(card.id)">{{ card.button }}</button> &nbsp;
-            <button class="btn btn-outline-accent" [routerLink]="['/product', card.id]">{{ card.viewDetail }}</button>
-          </div>
+  <div class="{{ card.class }}" *ngFor="let card of products">
+    <div class="card" id="{{ card.id }}" [class.active]="card.id == cardActiveId" (click)="setActiveCard(card.id)">
+      <div class="card-img-top">
+        <img src="{{ card.thumbnail }}" alt="Card image cap" />
+      </div>
+      <h5 class="card-title">{{ card.text }}</h5>
+      <div *ngIf="card.isCardbody_display">
+        <div class="card-body">
+          {{ card.category }}
+          <h4 class="card-title">{{ card.title }}</h4>
+          <p class="card-description">{{ card.description }}</p>
+          <p class="card-text">{{ card.price |currency }} <span>({{ card.discountPercentage }}%) </span></p>
+          <p>Available : {{ card.stock }}</p>
+          <button class="btn btn-dark" (click)="addTOCart(card)">{{ card.button }}</button> &nbsp;
+          <button class="btn btn-outline-accent" [routerLink]="['/product', card.id]">{{ card.viewDetail }}</button>
         </div>
       </div>
     </div>
   </div>
+</div>
+<div>
+  <app-cartpage [cartItem]="cartItem"></app-cartpage>
+</div>

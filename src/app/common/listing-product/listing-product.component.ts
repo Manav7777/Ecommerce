@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CartService } from 'src/app/service/cart.service';
 
 @Component({
   selector: 'app-listing-product',
@@ -7,16 +8,25 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ListingProductComponent implements OnInit {
 
+  cartItem=[]
   @Input() products;
   cardActiveId;
-  constructor() { }
+  constructor(private setCart:CartService) { }
 
-  ngOnInit(): void {
-  }
   setActiveCard(id){
     this.cardActiveId = id
   }
-  addTOCart(id){
-    console.log('cart',id)
+  addTOCart(item){
+    if(!this.setCart.itemsInCart(item)){
+      item.qtyTotal = 1;
+      this.setCart.addToCartService(item);
+      this.cartItem = [...this.setCart.getItems()];
+      console.log('products',this.cartItem)
+    }
+  }
+  
+  ngOnInit(): void {
+    this.setCart.loadCart();
+    this.cartItem = this.setCart.getItems(); 
   }
 }
