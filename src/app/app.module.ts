@@ -20,6 +20,7 @@ import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 import { ProductDetailComponent } from './common/product-detail/product-detail.component';
 import { ModelComponent } from './common/model/model.component';
 import { FooterComponent } from './common/footer/footer.component';
+import { CartpageComponent } from './pages/cartpage/cartpage.component';
 
 
 
@@ -38,6 +39,7 @@ import { FooterComponent } from './common/footer/footer.component';
     ProductDetailComponent,
     ModelComponent,
     FooterComponent,
+    CartpageComponent,
   ],
   imports: [
     BrowserModule,
