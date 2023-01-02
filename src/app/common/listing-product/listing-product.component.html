@@ -7,12 +7,12 @@
         <h5 class="card-title">{{ card.text }}</h5>
         <div *ngIf="card.isCardbody_display">
           <div class="card-body">
-            {{ card.category }} 
+            {{ card.category }}
             <h4 class="card-title">{{ card.title }}</h4>
             <p class="card-description">{{ card.description }}</p>
             <p class="card-text">{{ card.price |currency }}  <span>({{ card.discountPercentage }}%) </span></p>
             <p>Available : {{ card.stock }}</p>
-            <button class="btn btn-dark">{{ card.button }}</button> &nbsp;
+            <button class="btn btn-dark" (click)="addTOCart(card.id)">{{ card.button }}</button> &nbsp;
             <button class="btn btn-outline-accent" [routerLink]="['/product', card.id]">{{ card.viewDetail }}</button>
           </div>
         </div>

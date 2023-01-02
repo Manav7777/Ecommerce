@@ -15,6 +15,8 @@ nav {
     font-weight: 600;
     a {
       line-height: 20px;
+      font-size: 18px;
+      margin-right: 10px;
       &:hover {
         color: #fb2576;
         transition: 0.8s ease;
@@ -24,4 +26,24 @@ nav {
   .active{
     color: #fb2576;
   }
+}
+.badge-cus{
+  width: 100%;
+  a{
+    position: relative;
+    .b-text{
+      font-size: 13px;
+      color: #fff;
+      padding: 5px 5px;
+    }
+  }
+}
+.bg-accent{
+  background-color: #fb2576;
+}
+.p-1{
+  padding: 0.1rem !important;
+}
+.shadow{
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
