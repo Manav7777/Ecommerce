@@ -21,7 +21,9 @@ export class ListingProductComponent implements OnInit {
       item.qtyTotal = 1;
       this.setCart.addToCartService(item);
       this.cartItem = [...this.setCart.getItems()];
-      console.log('products',this.cartItem)
+      console.log('products',this.cartItem);
+      // window.location.reload();
+
     }
   }
   
