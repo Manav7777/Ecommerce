@@ -1,5 +1,6 @@
 import { AfterContentInit, Component, HostListener, Inject, OnInit } from '@angular/core';
 import { AuthUserService } from 'src/app/authGuard/auth-user.service';
+import { CartService } from 'src/app/service/cart.service';
 
 
 
@@ -11,9 +12,13 @@ import { AuthUserService } from 'src/app/authGuard/auth-user.service';
 })
 export class NavbarComponent implements OnInit,AfterContentInit {
   isDropdown = false;
+  badge:any;
 
-  constructor(private authService:AuthUserService) { }
-  ngOnInit(): void {}
+  constructor(private authService:AuthUserService,private cart:CartService) { }
+  ngOnInit(): void {
+    let bg = this.cart.getCartItem();
+    console.log(bg)
+  }
   openDropDown() {
     this.isDropdown = !this.isDropdown;
   }

@@ -1,64 +1,66 @@
-<h1>Shopping Cart</h1>
-<div class="container">
-    <div class="row">
-        <div class="shopping-cart" *ngFor="let item of cartItem">
-           
-            <div class="offset-md-1 col-md-10">
-                <div class="column-labels">
-                    <label class="product-image">Image</label>
-                    <label class="product-details">Product</label>
-                    <label class="product-price">Price</label>
-                    <label class="product-quantity">Quantity</label>
-                    <label class="product-removal">Remove</label>
-                    <label class="product-line-price">Total</label>
-                </div>
-
-                <div class="product">
-                    <div class="product-image">
-                        <img src="https://s.cdpn.io/3/dingo-dog-bones.jpg">
-                    </div>
-                    <div class="product-details">
-                        <div class="product-title"> {{ item.title }}</div>
-                        <p class="product-description">The best dog bones of all time. Holy crap. Your dog will be
-                            begging for
-                            these
-                            things! I got curious once and ate one myself. I'm a fan.</p>
-                    </div>
-                    <div class="product-price p-15">12.99</div>
-                    <div class="product-quantity">
-                        <input type="number" value="2" min="1">
-                    </div>
-                    <div class="product-line-price p-15">25.98</div>
-                    <div class="product-removal">
-                        <button class="remove-product">
-                            <i class="fa fa-trash" aria-hidden="true"></i>
-                        </button>
+<div class="" style="margin-top: 70px;">
+    <div class="container">
+        <div class="row">
+            <div class="column-labels" style="padding-top: 70px;">
+                <!-- <label class="product-image">Image</label>
+                <label class="product-details">Product</label>
+                <label class="product-price">Price</label>
+                <label class="product-quantity">Quantity</label>
+                <label class="product-removal">Remove</label>
+                <label class="product-line-price">Total</label> -->
+            </div>
+            <div class="shopping-cart" *ngFor="let item of cartItemDetail">    
+                <div class="offset-md-1 col-md-10">                  
+    
+                    <div class="product">
+                        <div class="product-image">
+                            <img src="{{ item.thumbnail }}">
+                        </div>
+                        &nbsp;&nbsp;&nbsp;
+                        <div class="product-details">
+                            <div class="product-title"> {{ item.title }}</div>
+                            <p class="product-description">{{ item.description }}</p>
+                        </div>
+                        <div class="product-price p-15">{{ item.price }}</div>
+                        <div class="product-quantity">
+                            <input type="number" value="2" min="1">
+                        </div>
+                        <div class="product-line-price p-15">25.98</div>
+                        <div class="product-removal">
+                            <button class="remove-product" (click)="removeDataFromCart(item)">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">        
-        <div class="offset-md-5  offset-lg-7 col-md-5 p-5">
-            <div class="totals">
-                <div class="totals-item">
-                    <label>Subtotal</label>
-                    <div class="totals-value" id="cart-subtotal">71.97</div>
+        <div class="row">
+            <div class="offset-md-5  offset-lg-7 col-md-5 p-5">
+                <div class="totals">
+                    <div class="totals-item">
+                        <label>Subtotal</label>
+                        <div class="totals-value" id="cart-subtotal">71.97</div>
+                    </div>
+                    <div class="totals-item">
+                        <label>Tax (5%)</label>
+                        <div class="totals-value" id="cart-tax">3.60</div>
+                    </div>
+                    <div class="totals-item">
+                        <label>Shipping</label>
+                        <div class="totals-value" id="cart-shipping">15.00</div>
+                    </div>
+                    <div class="totals-item totals-item-total">
+                        <label>Grand Total</label>
+                        <div class="totals-value" id="cart-total">90.57</div>
+                    </div>
                 </div>
-                <div class="totals-item">
-                    <label>Tax (5%)</label>
-                    <div class="totals-value" id="cart-tax">3.60</div>
-                </div>
-                <div class="totals-item">
-                    <label>Shipping</label>
-                    <div class="totals-value" id="cart-shipping">15.00</div>
-                </div>
-                <div class="totals-item totals-item-total">
-                    <label>Grand Total</label>
-                    <div class="totals-value" id="cart-total">90.57</div>
-                </div>
+                <button class="checkout">Checkout</button>
             </div>
-            <button class="checkout">Checkout</button>
         </div>
     </div>
 </div>
+
+<ng-template [ngIf]="isLoading">
+    <app-loader></app-loader>
+</ng-template>
