@@ -10,8 +10,7 @@
                 <label class="product-line-price">Total</label> -->
             </div>
             <div class="shopping-cart" *ngFor="let item of cartItemDetail">    
-                <div class="offset-md-1 col-md-10">                  
-    
+                <div class="offset-md-1 col-md-10" *ngIf="cartItemDetail?.length > 0; else noRecords">
                     <div class="product">
                         <div class="product-image">
                             <img src="{{ item.thumbnail }}">
@@ -31,9 +30,15 @@
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </button>
                         </div>
-                    </div>
+                    </div>   
                 </div>
             </div>
+            <ng-template [ngIf]="!cartItemDetail?.length">
+                <div class="nocart-record">
+                    <span class="icone"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+                    <p>Nothing in cart !!</p>
+                </div>
+            </ng-template>
         </div>
         <div class="row">
             <div class="offset-md-5  offset-lg-7 col-md-5 p-5">
@@ -60,7 +65,6 @@
         </div>
     </div>
 </div>
-
 <ng-template [ngIf]="isLoading">
     <app-loader></app-loader>
 </ng-template>
