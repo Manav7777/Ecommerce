@@ -13,6 +13,8 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { CardComponent } from './common/card/card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { HttpClientModule } from '@angular/common/http';
 import { LoaderComponent } from './common/loader/loader.component';
 import { ListingProductComponent } from './common/listing-product/listing-product.component';
@@ -21,6 +23,7 @@ import { ProductDetailComponent } from './common/product-detail/product-detail.c
 import { ModelComponent } from './common/model/model.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { CartpageComponent } from './pages/cartpage/cartpage.component';
+import { TostComponent } from './common/tost/tost.component';
 
 
 
@@ -40,6 +43,7 @@ import { CartpageComponent } from './pages/cartpage/cartpage.component';
     ModelComponent,
     FooterComponent,
     CartpageComponent,
+    TostComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +55,7 @@ import { CartpageComponent } from './pages/cartpage/cartpage.component';
     MatCarouselModule,
     NgbModule,
     NgbDropdownModule,
+    NgbToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

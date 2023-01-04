@@ -19,6 +19,6 @@
     </div>
   </div>
 </div>
-<!-- <div *ngIf="isCart">
-  <app-cartpage [cartItem]="cartItem"></app-cartpage>
-</div> -->
+<ng-template [ngIf]="isToast">
+  <app-tost aria-live="polite" aria-atomic="true" ></app-tost>
+</ng-template>
