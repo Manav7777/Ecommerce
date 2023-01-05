@@ -1,6 +1,7 @@
-import { AfterContentInit, Component, HostListener, Inject, OnInit } from '@angular/core';
+import { AfterContentInit, AfterViewChecked, AfterViewInit, Component, HostListener, Inject, OnInit } from '@angular/core';
 import { AuthUserService } from 'src/app/authGuard/auth-user.service';
 import { CartService } from 'src/app/service/cart.service';
+import { BedgeService } from './bedge.service';
 
 
 
@@ -10,20 +11,31 @@ import { CartService } from 'src/app/service/cart.service';
   styleUrls: ['./navbar.component.scss'],
 
 })
-export class NavbarComponent implements OnInit,AfterContentInit {
+export class NavbarComponent implements OnInit,AfterContentInit,AfterViewChecked {
   isDropdown = false;
   badge:any;
+  bedgeList:any = 0
 
-  constructor(private authService:AuthUserService,private cart:CartService) { }
+  constructor(private authService:AuthUserService,private cart:CartService,private bedgeService:BedgeService) { }
   ngOnInit(): void {
-    let bg = this.cart.getCartItem();
-    console.log(bg)
+    // let bg = this.cart.getCartItem();
   }
   openDropDown() {
     this.isDropdown = !this.isDropdown;
   }
   onLogout(){
     return this.authService.logout();
+  }
+  ngAfterViewChecked(){
+    this.loadBedge()
+  }
+  loadBedge(){
+    if(this.bedgeService.setBedge()){
+      let cartList = this.bedgeService.setBedge();
+      this.bedgeList = cartList.length
+    }else{
+      this.bedgeList = 0;
+     }
   }
   ngAfterContentInit() {
     (() => {

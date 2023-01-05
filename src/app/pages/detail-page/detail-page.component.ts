@@ -17,13 +17,12 @@ export class DetailPageComponent implements OnInit {
     this.isLoading=true;
     this.paramID = this.route.snapshot.paramMap.get('id');
     this.productDetail.getProduct(this.paramID).subscribe((response)=>{
-      console.log('response',response)
       this.detailProduct.push(response);
       if(this.detailProduct){
         this.isLoading=false;
       }
     })
   }
-  
+
 
 }

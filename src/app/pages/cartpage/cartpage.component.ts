@@ -9,16 +9,26 @@ import { CartService } from 'src/app/service/cart.service';
 export class CartpageComponent implements OnInit {
   cartItemDetail: any;
   isLoading = false;
+  totalAmount:any=null
   constructor(private cartData: CartService) {}
 
   ngOnInit(): void {
     this.cartItemDetail = this.cartData.loadLocal();
-    console.log('data', this.cartItemDetail);
+    this.getTotal()
   }
   removeDataFromCart(item) {
     return setTimeout(()=>{
       this.isLoading = true;
       this.cartData.removeItemFormCart(item);
     },200)
+  }
+  getTotal(){
+    let total = 0
+    for(let i=0;i<this.cartItemDetail.length;i++){
+      if(this.cartItemDetail[i].price){
+        total += this.cartItemDetail[i].price * this.cartItemDetail[i].qtyTotal;
+        this.totalAmount = total;
+      }
+    }
   }
 }

@@ -11,7 +11,6 @@ export class GetproductService {
      return this.http.get('https://dummyjson.com/products');
   }
   getProduct(id){
-    console.log('ids',id)
     return this.http.get(`https://dummyjson.com/products/${id}`)
   }
 }

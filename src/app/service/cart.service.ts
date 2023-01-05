@@ -25,7 +25,6 @@ export class CartService {
     // const index = this.cartItem.findIndex((x) => x.id === item.id);
     let cartData = JSON.parse(localStorage.getItem('CART_ITEMS'));
     const index = cartData.filter((x) => x.id !== item.id);
-    console.log(index)
     this.cartItem = index;
     // this.cartItem.splice(index, 1);
     this.saveCart();
