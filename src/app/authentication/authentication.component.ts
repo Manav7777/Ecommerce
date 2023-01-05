@@ -49,15 +49,13 @@ export class AuthenticationComponent implements OnInit {
           email: user.email,
           password: user.password,
         };
-        console.log(store);
         localStorage.setItem('user', JSON.stringify(store));
         this.router.navigate(['/listing']);
       }else{
         this.isAlertOpen = true
-        this.alertErrorTxt = "Email or Password didn't Match with records" 
+        this.alertErrorTxt = "Email or Password didn't Match with records"
       }
     });
-    console.log(this.loginForm);
   }
   closeAlert(){
     this.isAlertOpen=false;

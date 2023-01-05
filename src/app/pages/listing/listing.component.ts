@@ -47,7 +47,6 @@ export class ListingComponent implements OnInit {
   getProducts() {
     this.isLoading = true;
     this.product.getProducts().subscribe((response: any) => {
-      console.log('res', response);
       response.products.map((data) => {
         data.isCardbody_display = true;
         data.class = 'col-md-4 mb-3';

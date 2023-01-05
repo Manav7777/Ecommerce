@@ -14,7 +14,6 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
   }
   setActiveCard(id){
-    console.log('id',id)
     this.cardActiveId = id
   }
 }
