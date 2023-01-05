@@ -13,4 +13,7 @@ export class GetproductService {
   getProduct(id){
     return this.http.get(`https://dummyjson.com/products/${id}`)
   }
+  getFilterProduct(filter){
+    return this.http.get(`https://dummyjson.com/products/search?q=${filter}`)
+  }
 }

@@ -15,9 +15,16 @@
                         </div>
                         <div class="product-price p-15">{{ item.price }}</div>
                         <div class="product-quantity">
-                            <input type="number" ngModel="{{ item.qtyTotal }}" min="1">
+                            <input type="number" value="1" id="{{ item.id }}" #qty (change)="onQtyChange(qty)" min="1">
                         </div>
-                        <div class="product-line-price p-15">25.98</div>
+                        <div class="product-price p-15">
+                            <span class="" *ngIf="item.id == id; else defaultPrice">
+                                {{ itemPrice }}
+                            </span>
+                            <ng-template #defaultPrice>
+                                {{ item.price }}
+                            </ng-template>                            
+                        </div>
                         <div class="product-removal">
                             <button class="remove-product" (click)="removeDataFromCart(item)">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
