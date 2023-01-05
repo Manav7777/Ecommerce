@@ -9,7 +9,9 @@ import { CartService } from 'src/app/service/cart.service';
 export class CartpageComponent implements OnInit {
   cartItemDetail: any;
   isLoading = false;
-  totalAmount:any=null
+  totalAmount:any=null;
+  itemPrice;
+  id;
   constructor(private cartData: CartService) {}
 
   ngOnInit(): void {
@@ -28,6 +30,16 @@ export class CartpageComponent implements OnInit {
       if(this.cartItemDetail[i].price){
         total += this.cartItemDetail[i].price * this.cartItemDetail[i].qtyTotal;
         this.totalAmount = total;
+      }
+    }
+  }
+  onQtyChange(qty){
+    this.id = qty.id
+    let total = 0
+    for(let i=0;i<this.cartItemDetail.length;i++){
+      if(this.cartItemDetail[i].id == qty.id){
+        total = this.cartItemDetail[i].price * qty.value;
+        this.itemPrice = total;
       }
     }
   }

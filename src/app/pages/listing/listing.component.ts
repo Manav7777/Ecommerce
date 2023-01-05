@@ -58,4 +58,25 @@ export class ListingComponent implements OnInit {
       this.isLoading = false;
     });
   }
+  applyFilter(event) {
+    let checkboxChecked = event.target.checked;
+    if (checkboxChecked) {
+      this.isLoading = true;
+      this.product
+        .getFilterProduct(event.target.value)
+        .subscribe((response: any) => {
+          response.products.map((data) => {
+            data.isCardbody_display = true;
+            data.class = 'col-md-4 mb-3';
+            data.cardWidth = '20rem';
+            data.button = 'Add to Cart';
+            data.viewDetail = 'View Product';
+          });
+          this.productDetails = response.products;
+          this.isLoading = false;
+        });
+    } else {
+      this.getProducts();
+    }
+  }
 }

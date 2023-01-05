@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="footer">
-                <button type="button" class="btn btn-dark">
+                <button type="button" class="btn btn-dark" (click)="addProductOnCart(detail)">
                     <span><i class="fa fa-shopping-cart" aria-hidden="true"></i> add to cart</span>
                 </button>
                 <a href="#!"><img src="http://co0kie.github.io/codepen/nike-product-page/share.png" alt=""></a>
@@ -49,4 +49,6 @@
 <a href="" target="_blank" title="Watch me speed code this"
     style="position: fixed; bottom: 10px; right: 10px"><img src="http://co0kie.github.io/codepen/youtube.png"
         alt=""></a>
-
+<ng-template [ngIf]="isToast">
+    <app-tost aria-live="polite" aria-atomic="true" ></app-tost>
+</ng-template>

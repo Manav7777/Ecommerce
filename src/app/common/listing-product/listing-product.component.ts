@@ -26,17 +26,13 @@ export class ListingProductComponent implements OnInit {
       this.cartItem = [...this.setCart.getItems()];
       if (this.cartItem) {
         this.isToast = true;
-        this.toastService.show('I am a success toast', { classname: 'bg-success text-light', delay: 10000 });
+        this.toastService.show('Item Added in cart', { classname: 'bg-success text-light', delay: 10000 });
         this.message = 'Item added in Cart!!';
         this.bedgeS.setBedge()
       }
       // window.location.reload();
     }
   }
-
-  showSuccess() {
-		this.toastService.show('I am a success toast', { classname: 'bg-success text-light', delay: 10000 });
-	}
   ngOnInit(): void {
     this.setCart.loadCart();
     this.cartItem = this.setCart.getItems();
