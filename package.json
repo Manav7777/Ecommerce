@@ -26,6 +26,7 @@
     "@ngmodule/material-carousel": "^0.6.0",
     "bootstrap": "^5.2.3",
     "font-awesome": "^4.7.0",
+    "ngx-infinite-scroll": "^10.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

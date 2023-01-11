@@ -19,7 +19,7 @@
           <label for="Laptop">Laptop</label>
         </span>
       </div>
-      <app-listing-product [products]="productDetails"></app-listing-product>
+      <app-listing-product infinite-scroll  (scrolled)="getProducts()" [products]="productDetails"></app-listing-product>
     </div>
   </div>
 </div>

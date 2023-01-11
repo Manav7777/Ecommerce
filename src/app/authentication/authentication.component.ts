@@ -14,16 +14,18 @@ export class AuthenticationComponent implements OnInit {
   passwordError;
   alertErrorTxt;
   isAlertOpen:boolean;
+  emailPattern = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
   constructor(private router: Router) {}
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
+      email: new FormControl(null, [Validators.required, Validators.email,Validators.pattern(this.emailPattern)]),
       password: new FormControl(null, Validators.required),
     });
     if (localStorage.getItem('user')) {
       this.router.navigate(['/listing']);
     }
+    
   }
   onSubmit() {
     if (
@@ -57,6 +59,7 @@ export class AuthenticationComponent implements OnInit {
       }
     });
   }
+
   closeAlert(){
     this.isAlertOpen=false;
   }
