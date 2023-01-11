@@ -10,7 +10,9 @@ export class AuthUserService {
     return !!localStorage.getItem('user');
   }
   logout(){
-     localStorage.removeItem('user');
+     setTimeout(()=>{
+      localStorage.removeItem('user');
     return this.router.navigate(['/'])
+     },800)
   }
 }
