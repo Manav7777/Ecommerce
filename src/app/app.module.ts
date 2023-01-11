@@ -14,6 +14,8 @@ import { CardComponent } from './common/card/card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
+import { InfiniteScrollModule } from "ngx-infinite-scroll";
+
 
 import { HttpClientModule } from '@angular/common/http';
 import { LoaderComponent } from './common/loader/loader.component';
@@ -56,6 +58,7 @@ import { TostComponent } from './common/tost/tost.component';
     NgbModule,
     NgbDropdownModule,
     NgbToastModule,
+    InfiniteScrollModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -24,6 +24,7 @@ export class NavbarComponent implements OnInit,AfterContentInit,AfterViewChecked
     this.isDropdown = !this.isDropdown;
   }
   onLogout(){
+    this.cart.clearCart();
     return this.authService.logout();
   }
   ngAfterViewChecked(){

@@ -13,6 +13,12 @@ export class ListingComponent implements OnInit {
   selectedIndex = 0;
   productDetails: any;
   isLoading = false;
+  totalRecords; 
+  responseObj={
+    page:1,
+    pageSize:3,
+    nextPage:''
+  }
   slides = [
     {
       image: `${environment.imageUrl}assets/BG-1.jpg`,
@@ -57,6 +63,8 @@ export class ListingComponent implements OnInit {
       this.productDetails = response.products;
       this.isLoading = false;
     });
+    this.totalRecords = this.productDetails.length
+    console.log('tr',this.totalRecords)
   }
   applyFilter(event) {
     let checkboxChecked = event.target.checked;
