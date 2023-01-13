@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
 
 @Component({
@@ -9,38 +10,43 @@ import { CartService } from 'src/app/service/cart.service';
 export class CartpageComponent implements OnInit {
   cartItemDetail: any;
   isLoading = false;
-  totalAmount:any=null;
+  totalAmount: any = null;
   itemPrice;
   id;
-  constructor(private cartData: CartService) {}
+  constructor(private cartData: CartService, private router: Router) {}
 
   ngOnInit(): void {
     this.cartItemDetail = this.cartData.loadLocal();
-    this.getTotal()
+    this.getTotal();
   }
   removeDataFromCart(item) {
-    return setTimeout(()=>{
+    return setTimeout(() => {
       this.isLoading = true;
       this.cartData.removeItemFormCart(item);
-    },200)
+    }, 200);
   }
-  getTotal(){
-    let total = 0
-    for(let i=0;i<this.cartItemDetail.length;i++){
-      if(this.cartItemDetail[i].price){
+  getTotal() {
+    let total = 0;
+    for (let i = 0; i < this.cartItemDetail.length; i++) {
+      if (this.cartItemDetail[i].price) {
         total += this.cartItemDetail[i].price * this.cartItemDetail[i].qtyTotal;
         this.totalAmount = total;
       }
     }
   }
-  onQtyChange(qty){
-    this.id = qty.id
-    let total = 0
-    for(let i=0;i<this.cartItemDetail.length;i++){
-      if(this.cartItemDetail[i].id == qty.id){
+  onQtyChange(qty) {
+    this.id = qty.id;
+    let total = 0;
+    for (let i = 0; i < this.cartItemDetail.length; i++) {
+      if (this.cartItemDetail[i].id == qty.id) {
         total = this.cartItemDetail[i].price * qty.value;
         this.itemPrice = total;
       }
+    }
+  }
+  gotoCheckout() {
+    if (this.totalAmount) {
+      this.router.navigate(['/checkout']);
     }
   }
 }

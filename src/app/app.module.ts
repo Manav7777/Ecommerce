@@ -26,6 +26,8 @@ import { ModelComponent } from './common/model/model.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { CartpageComponent } from './pages/cartpage/cartpage.component';
 import { TostComponent } from './common/tost/tost.component';
+import { InputsComponent } from './common/inputs/inputs.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 
 
@@ -46,6 +48,8 @@ import { TostComponent } from './common/tost/tost.component';
     FooterComponent,
     CartpageComponent,
     TostComponent,
+    InputsComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

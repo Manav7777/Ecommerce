@@ -4,6 +4,7 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { AuthGuard } from './authGuard/auth.guard';
 import { NotFound } from './Error/notFound.component';
 import { CartpageComponent } from './pages/cartpage/cartpage.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 import { ListingComponent } from './pages/listing/listing.component';
 
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:'listing' ,component:ListingComponent,canActivate:[AuthGuard]},
   {path:'product/:id',component:DetailPageComponent,canActivate:[AuthGuard]},
   {path:'add/cart' ,component:CartpageComponent,canActivate:[AuthGuard]},
+  {path:'checkout' ,component:CheckoutComponent,canActivate:[AuthGuard]},
   {path:'**' ,component:NotFound},
 ];
 
