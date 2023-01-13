@@ -10,8 +10,10 @@ export class AuthUserService {
     return !!localStorage.getItem('user');
   }
   logout(){
+    let isLoading = true;
      setTimeout(()=>{
       localStorage.removeItem('user');
+      isLoading =false
     return this.router.navigate(['/'])
      },800)
   }
