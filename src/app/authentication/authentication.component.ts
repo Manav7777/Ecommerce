@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { LoaderService } from '../common/loader/loader.service';
 
 @Component({
   selector: 'app-authentication',
@@ -13,19 +14,22 @@ export class AuthenticationComponent implements OnInit {
   emailError;
   passwordError;
   alertErrorTxt;
-  isAlertOpen:boolean;
-  emailPattern = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
-  constructor(private router: Router) {}
+  isAlertOpen: boolean;
+  emailPattern = '^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$';
+  constructor(private router: Router, private loader: LoaderService) {}
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email,Validators.pattern(this.emailPattern)]),
+      email: new FormControl(null, [
+        Validators.required,
+        Validators.email,
+        Validators.pattern(this.emailPattern),
+      ]),
       password: new FormControl(null, Validators.required),
     });
     if (localStorage.getItem('user')) {
       this.router.navigate(['/listing']);
     }
-    
   }
   onSubmit() {
     if (
@@ -52,15 +56,19 @@ export class AuthenticationComponent implements OnInit {
           password: user.password,
         };
         localStorage.setItem('user', JSON.stringify(store));
-        this.router.navigate(['/listing']);
-      }else{
-        this.isAlertOpen = true
-        this.alertErrorTxt = "Email or Password didn't Match with records"
+        this.loader.showLoader();
+        setTimeout(() => {
+          this.loader.hideLoader();
+          this.router.navigate(['/listing']);
+        }, 800);
+      }else {
+        this.isAlertOpen = true;
+        this.alertErrorTxt = "Email or Password didn't Match with records";
       }
     });
   }
 
-  closeAlert(){
-    this.isAlertOpen=false;
+  closeAlert() {
+    this.isAlertOpen = false;
   }
 }

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { LoaderService } from '../common/loader/loader.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   cartItem: any = [];
-  constructor() {}
+  constructor(private loader:LoaderService) {}
 
   addToCartService(item) {
     this.cartItem.push(item);
@@ -28,7 +29,8 @@ export class CartService {
     this.cartItem = index;
     // this.cartItem.splice(index, 1);
     this.saveCart();
-    window.location.reload();
+    // window.location.reload();
+    this.loader.hideLoader();
   }
   itemsInCart(item): boolean {
     return this.cartItem.findIndex((x) => x.id === item.id) > -1;
