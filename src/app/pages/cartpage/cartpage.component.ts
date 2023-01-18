@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoaderService } from 'src/app/common/loader/loader.service';
 import { CartService } from 'src/app/service/cart.service';
 
 @Component({
@@ -9,20 +10,24 @@ import { CartService } from 'src/app/service/cart.service';
 })
 export class CartpageComponent implements OnInit {
   cartItemDetail: any;
-  isLoading = false;
   totalAmount: any = null;
   itemPrice;
   id;
-  constructor(private cartData: CartService, private router: Router) {}
+  constructor(
+    private cartData: CartService,
+    private router: Router,
+    private loader: LoaderService
+  ) {}
 
   ngOnInit(): void {
     this.cartItemDetail = this.cartData.loadLocal();
     this.getTotal();
   }
   removeDataFromCart(item) {
-    return setTimeout(() => {
-      this.isLoading = true;
+    this.loader.showLoader();
+    setTimeout(() => {
       this.cartData.removeItemFormCart(item);
+      this.cartItemDetail = this.cartData.loadLocal();
     }, 200);
   }
   getTotal() {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoaderService } from 'src/app/common/loader/loader.service';
 import { GetproductService } from 'src/app/service/getproduct.service';
 import { environment } from 'src/environments/environment';
 
@@ -12,13 +13,12 @@ export class ListingComponent implements OnInit {
   paramID: any;
   selectedIndex = 0;
   productDetails: any;
-  isLoading = false;
-  totalRecords; 
-  responseObj={
-    page:1,
-    pageSize:3,
-    nextPage:''
-  }
+  totalRecords;
+  responseObj = {
+    page: 1,
+    pageSize: 3,
+    nextPage: '',
+  };
   slides = [
     {
       image: `${environment.imageUrl}assets/BG-1.jpg`,
@@ -43,7 +43,8 @@ export class ListingComponent implements OnInit {
   ];
   constructor(
     private route: ActivatedRoute,
-    private product: GetproductService
+    private product: GetproductService,
+    private loader: LoaderService
   ) {}
 
   ngOnInit(): void {
@@ -51,7 +52,7 @@ export class ListingComponent implements OnInit {
     this.paramID = this.route.snapshot.paramMap.get('id');
   }
   getProducts() {
-    this.isLoading = true;
+    this.loader.showLoader();
     this.product.getProducts().subscribe((response: any) => {
       response.products.map((data) => {
         data.isCardbody_display = true;
@@ -61,15 +62,15 @@ export class ListingComponent implements OnInit {
         data.viewDetail = 'View Product';
       });
       this.productDetails = response.products;
-      this.isLoading = false;
+      this.loader.hideLoader();
     });
-    this.totalRecords = this.productDetails.length
-    console.log('tr',this.totalRecords)
+    this.totalRecords = this.productDetails.length;
+    console.log('tr', this.totalRecords);
   }
   applyFilter(event) {
     let checkboxChecked = event.target.checked;
     if (checkboxChecked) {
-      this.isLoading = true;
+      this.loader.showLoader();
       this.product
         .getFilterProduct(event.target.value)
         .subscribe((response: any) => {
@@ -80,8 +81,10 @@ export class ListingComponent implements OnInit {
             data.button = 'Add to Cart';
             data.viewDetail = 'View Product';
           });
-          this.productDetails = response.products;
-          this.isLoading = false;
+          setTimeout(() => {
+            this.productDetails = response.products;
+            this.loader.hideLoader();
+          }, 800);
         });
     } else {
       this.getProducts();
