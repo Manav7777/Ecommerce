@@ -15,12 +15,6 @@ export class TostComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  // showSuccess() {
-	// 	this.toastService.show(this.message, { classname: 'bg-success text-light', delay: 10000 });
-	// }
-  // ngOnDestroy(): void {
-	// 	this.toastService.clear();
-	// }
   isTemplate(toast){
     return toast.textOrTpl instanceof TemplateRef;
   }
