@@ -1,5 +1,49 @@
 <div class="container">
     <div class="row ">
-        <app-inputs></app-inputs>
+        <div class="checkout-wrapper">
+            <div class="center">
+                <div class="col-md-6">
+                    <form [formGroup]="purchaseForm" (ngSubmit)="submit()">
+                        <div *ngFor="let filed of inputfields.fileds">
+                            <label for="{{filed.label}}">{{filed.label}}</label>
+                            <input type="{{ filed.type }}" name="{{ filed.name }}" placeholder="{{ filed.placeholder }}"
+                                class="{{filed.class}}" value="{{filed.value}}"
+                                formControlName="{{ filed.FormControlName }}" />
+                        </div>                        
+                    </form>
+                    <div class="mt-2">
+                        <button class="btn btn-outline-dark" (click)="openSameModel(1)">Click</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+<ng-template [ngIf]="isModelOpen">
+    <jw-modal id="1">
+        <div class="wrapper">
+            <table class="table table-hover custom">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Bill Address</th>
+                        <th>Address New Line</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let bill of billingData" class="tr">
+                        <td>{{ bill.name }}</td>
+                        <td>{{ bill.email }}</td>
+                        <td>{{ bill.address }}</td>
+                        <td>{{ bill.addressTwo }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="btn-wrapper">
+                <button class="btn mt-3 custom-danger" (click)="cancleModel()">Cancel</button> &nbsp;&nbsp;&nbsp;
+                <button class="btn mt-3 custom-btn">Purchase</button>
+            </div>
+        </div>
+    </jw-modal>
+</ng-template>
