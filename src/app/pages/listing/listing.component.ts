@@ -65,7 +65,6 @@ export class ListingComponent implements OnInit {
       this.loader.hideLoader();
     });
     this.totalRecords = this.productDetails.length;
-    console.log('tr', this.totalRecords);
   }
   applyFilter(event) {
     let checkboxChecked = event.target.checked;

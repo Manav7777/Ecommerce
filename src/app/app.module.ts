@@ -18,11 +18,11 @@ import { InfiniteScrollModule } from "ngx-infinite-scroll";
 
 
 import { HttpClientModule } from '@angular/common/http';
+import { ModalModule } from './common/Model';
 import { LoaderComponent } from './common/loader/loader.component';
 import { ListingProductComponent } from './common/listing-product/listing-product.component';
 import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 import { ProductDetailComponent } from './common/product-detail/product-detail.component';
-import { ModelComponent } from './common/model/model.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { CartpageComponent } from './pages/cartpage/cartpage.component';
 import { TostComponent } from './common/tost/tost.component';
@@ -44,7 +44,6 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     ListingProductComponent,
     DetailPageComponent,
     ProductDetailComponent,
-    ModelComponent,
     FooterComponent,
     CartpageComponent,
     TostComponent,
@@ -63,6 +62,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     NgbDropdownModule,
     NgbToastModule,
     InfiniteScrollModule,
+    ModalModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,7 +12,6 @@ export class InputsComponent implements OnInit {
   constructor(private inputFiled:InputService) { }
 
   ngOnInit(): void {
-    console.log('ff',this.inputFiled.formFields);
     this.fileds = this.inputFiled.formFields;
   }
 
