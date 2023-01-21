@@ -75,7 +75,7 @@ export class ListingComponent implements OnInit {
         .subscribe((response: any) => {
           response.products.map((data) => {
             data.isCardbody_display = true;
-            data.class = 'col-md-4 mb-3';
+            data.class = 'col-md-4 mb-2';
             data.cardWidth = '20rem';
             data.button = 'Add to Cart';
             data.viewDetail = 'View Product';
