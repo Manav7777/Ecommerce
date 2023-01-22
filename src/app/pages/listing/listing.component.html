@@ -20,6 +20,9 @@
         </span>
       </div>
       <app-listing-product infinite-scroll  (scrolled)="getProducts()" [products]="productDetails"></app-listing-product>
+      <ng-template [ngIf]="!productDetails">
+        <h2>No Records Found.</h2>
+      </ng-template>
     </div>
   </div>
 </div>

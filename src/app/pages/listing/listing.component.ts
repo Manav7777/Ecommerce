@@ -64,6 +64,9 @@ export class ListingComponent implements OnInit {
       this.productDetails = response.products;
       this.loader.hideLoader();
     });
+    if(!this.productDetails){
+      this.loader.hideLoader();
+    }
     this.totalRecords = this.productDetails.length;
   }
   applyFilter(event) {

@@ -8,6 +8,8 @@ import {
 import { InputService } from 'src/app/common/inputs/input.service';
 import { ModalService } from 'src/app/common/Model';
 import { ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoaderService } from 'src/app/common/loader/loader.service';
 
 @Component({
   selector: 'app-checkout',
@@ -24,7 +26,9 @@ export class CheckoutComponent implements OnInit {
   constructor(
     private inputfields: InputService,
     private fb: FormBuilder,
-    private modalService: ModalService
+    private modalService: ModalService,
+    private router:Router,
+    private loader:LoaderService
   ) {}
   ngOnInit(): void {
     this.purchaseForm = this.fb.group({
@@ -48,9 +52,7 @@ export class CheckoutComponent implements OnInit {
     };
 
     this.billingData.push(BillingObj);
-    console.log('Data',this.billingData)
     if (this.billingData) {
-      console.log('working')
       this.isModelOpen = true;
       this.modalService.open('1');
     }
@@ -61,7 +63,13 @@ export class CheckoutComponent implements OnInit {
     this.modalService.close('1')
   }
   openSameModel(id){
-    console.log('ids',id)
     this.modalService.open(id);
+  }
+  purchaseOrder(){
+    this.loader.showLoader();
+    setTimeout(()=>{
+      this.loader.hideLoader();
+      this.router.navigate(['oder-details'])
+    },1000)
   }
 }
