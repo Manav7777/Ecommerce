@@ -28,6 +28,7 @@ import { CartpageComponent } from './pages/cartpage/cartpage.component';
 import { TostComponent } from './common/tost/tost.component';
 import { InputsComponent } from './common/inputs/inputs.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { OrderDetailsComponent } from './pages/order-details/order-details.component';
 
 
 
@@ -49,6 +50,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     TostComponent,
     InputsComponent,
     CheckoutComponent,
+    OrderDetailsComponent,
   ],
   imports: [
     BrowserModule,
